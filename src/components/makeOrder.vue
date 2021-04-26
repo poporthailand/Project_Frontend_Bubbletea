@@ -320,7 +320,7 @@ export default {
             this.product.quantity -= this.unitquantity
 
             //  update data
-            apiURL = `http://api-vue.app.ruk-com.cloud/api/update/${this.product._id}`;
+            let apiURL = `http://api-vue.app.ruk-com.cloud/api/update/${this.product._id}`;
             axios.put(apiURL, this.product).then((res) => {
                 console.log(res)
                 //this.$router.push('/makeOrder')
@@ -329,8 +329,8 @@ export default {
             })
 
             // create history
-            let apiURL = 'http://api-vue.app.ruk-com.cloud/api-history/create';
-            axios.post(apiURL, this.history).then(() => {
+            let apiURL1 = 'http://api-vue.app.ruk-com.cloud/api-history/create';
+            axios.post(apiURL1, this.history).then(() => {
                 this.history = {
                     menu: '',
                     topping: '',
