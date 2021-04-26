@@ -28,7 +28,7 @@ export default {
         }
     },
     created(){
-        let apiURL = `http://localhost:4000/api/edit/${this.$route.params.id}`;
+        let apiURL = `http://api-vue.app.ruk-com.cloud/api/edit/${this.$route.params.id}`;
         axios.get(apiURL).then((res) => {
             this.student = res.data
             console.log(this.student)
@@ -36,7 +36,7 @@ export default {
     },
     methods:{
         handleUpdateForm(){
-            let apiURL = `http://localhost:4000/api/update/${this.$route.params.id}`;
+            let apiURL = `http://api-vue.app.ruk-com.cloud/api/update/${this.$route.params.id}`;
             axios.put(apiURL, this.student).then((res) => {
                 console.log(res)
                 this.$router.push('/view')

@@ -152,7 +152,7 @@ export default {
         }
     },
     created(){
-        let apiURL = 'http://localhost:4000/api';
+        let apiURL = 'http://api-vue.app.ruk-com.cloud/api';
         axios.get(apiURL).then(res => {
             this.products = res.data
             console.log(this.products)
