@@ -327,10 +327,19 @@ export default {
             }).catch(error => {
                 console.log(error)
             })
+            
+          }
+
+      }
+
+      for(let i = 0; i < this.product.length; i++){
+        if (this.menu == this.product[i].name){
+            this.product = this.product[i]
+            this.product.quantity -= this.unitquantity
 
             // create history
-            let apiURL1 = 'http://api-vue.app.ruk-com.cloud/api-history/create';
-            axios.post(apiURL1, this.history).then(() => {
+            let apiURL = 'http://api-vue.app.ruk-com.cloud/api-history/create';
+            axios.post(apiURL, this.history).then(() => {
                 this.history = {
                     menu: '',
                     topping: '',
@@ -341,9 +350,10 @@ export default {
             }).catch(error => {
                 console.log(error)
             })
-            
-          }
-       }
+
+        }
+        
+      }
        this.$router.go(this.$router.currentRoute)
       //}
     }
