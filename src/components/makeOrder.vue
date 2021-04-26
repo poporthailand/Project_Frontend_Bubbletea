@@ -313,6 +313,7 @@ export default {
     handleSubmitForm(){
       //console.log('++');
         let r = confirm('ต้องการทำรายการนี้ ?')
+        console.log(this.product[i].name)
         if (r){
       for(let i = 0; i < this.product.length; i++){
         if (this.menu == this.product[i].name){
