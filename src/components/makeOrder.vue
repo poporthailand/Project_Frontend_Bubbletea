@@ -340,15 +340,6 @@ export default {
             }).catch(error => {
                 console.log(error)
             })
-
-            //fetch data
-            apiURL = 'http://api-vue.app.ruk-com.cloud/api';
-            axios.get(apiURL).then(res => {
-                this.product = res.data
-                console.log(this.product)
-            }).catch(error => {
-                console.log(error)
-            })
             
           }
        }
