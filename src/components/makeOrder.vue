@@ -312,8 +312,8 @@ export default {
     },
     handleSubmitForm(){
       //console.log('++');
-        let r = confirm('ต้องการทำรายการนี้ ?')
-        if (r){
+       // let r = confirm('ต้องการทำรายการนี้ ?')
+       // if (r){
       for(let i = 0; i < this.product.length; i++){
         if (this.menu == this.product[i].name){
             this.product = this.product[i]
@@ -344,7 +344,7 @@ export default {
           }
        }
        this.$router.go(this.$router.currentRoute)
-      }
+      //}
     }
     
   },
