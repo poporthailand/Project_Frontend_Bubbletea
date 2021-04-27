@@ -52,10 +52,10 @@ export default {
             products: []
         }
     },
-    methods:{
-        handleUpdateForm(){
+     methods:{
+         async handleUpdateForm(){
             let apiURL = `http://api-vue.app.ruk-com.cloud/api/update/${this.$route.params.id}`;
-            axios.put(apiURL, this.products).then((res) => {
+            await axios.put(apiURL, this.products).then((res) => {
                 console.log(res)
                 this.$router.push('/checkStock')
             }).catch(error => {
@@ -67,9 +67,9 @@ export default {
     updated(){
         //console.log(id)
     },
-    created(){
+    async created(){
         let apiURL = `http://api-vue.app.ruk-com.cloud/api/edit/${this.$route.params.id}`;
-        axios.get(apiURL).then((res) => {
+        await axios.get(apiURL).then((res) => {
             this.products = res.data
             console.log(this.products)
         })

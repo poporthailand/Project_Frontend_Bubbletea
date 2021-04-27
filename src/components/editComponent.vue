@@ -27,17 +27,17 @@ export default {
             student: {}
         }
     },
-    created(){
+    async created(){
         let apiURL = `http://api-vue.app.ruk-com.cloud/api/edit/${this.$route.params.id}`;
-        axios.get(apiURL).then((res) => {
+        await axios.get(apiURL).then((res) => {
             this.student = res.data
             console.log(this.student)
         })
     },
     methods:{
-        handleUpdateForm(){
+        async handleUpdateForm(){
             let apiURL = `http://api-vue.app.ruk-com.cloud/api/update/${this.$route.params.id}`;
-            axios.put(apiURL, this.student).then((res) => {
+            await axios.put(apiURL, this.student).then((res) => {
                 console.log(res)
                 this.$router.push('/view')
             }).catch(error => {

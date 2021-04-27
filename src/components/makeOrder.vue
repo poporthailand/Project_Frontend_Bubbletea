@@ -239,19 +239,16 @@ export default {
 
     }
   },
-  created(){
+  async created(){
         let apiURL = 'http://api-vue.app.ruk-com.cloud/api';
-        axios.get(apiURL).then(res => {
+         await axios.get(apiURL).then(res => {
             this.product = res.data
             console.log(this.product)
             // set app data
             this.quantity = this.product[0].quantity
         }).catch(error => {
             console.log(error)
-        })  
-        
-        
-        
+        })      
   },
   methods: {
     clickmenu(){

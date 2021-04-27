@@ -90,11 +90,11 @@ export default {
     };
   },
   methods: {
-    handleDelete(id) {
+    async handleDelete(id) {
       let apiURL = `http://api-vue.app.ruk-com.cloud/api-history/delete/${id}`;
             let indexOfArrayItem = this.histories.findIndex(i => i._id === id);
             if(window.confirm("Do you really want to delete?")){
-                axios.delete(apiURL).then(() => {
+               await axios.delete(apiURL).then(() => {
                     this.histories.splice(indexOfArrayItem, 1)
                 }).catch(error => {
                     console.log(error)
@@ -102,9 +102,9 @@ export default {
             }
     }
   },
-  created() {
+  async created() {
     let apiURL = "http://api-vue.app.ruk-com.cloud/api-history";
-    axios
+    await axios
       .get(apiURL)
       .then((res) => {
         this.histories = res.data;
