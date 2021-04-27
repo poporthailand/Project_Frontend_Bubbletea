@@ -310,7 +310,7 @@ export default {
         this.tmp = this.tmp * this.unitquantity
       }
     },
-    handleSubmitForm(){
+    async handleSubmitForm(){
       //console.log('++');
         let r = confirm('ต้องการทำรายการนี้ ?')
         if (r){
@@ -320,7 +320,7 @@ export default {
             this.product.quantity -= this.unitquantity
 
             //  update data
-             let apiURL  = `http://api-vue.app.ruk-com.cloud/api/update/${this.product._id}`;
+             let apiURL  = await `http://api-vue.app.ruk-com.cloud/api/update/${this.product._id}`;
               axios.put(apiURL, this.product).then((res) => {
                 console.log(res)
                 //this.$router.push('/makeOrder')
@@ -328,10 +328,10 @@ export default {
                 console.log(error)
             })
 
-            this.$router.go(this.$router.currentRoute)
+
 
             // create history
-              apiURL = 'http://api-vue.app.ruk-com.cloud/api-history/create';
+              apiURL = await 'http://api-vue.app.ruk-com.cloud/api-history/create';
               axios.post(apiURL, this.history).then(() => {
                 this.history = {
                     menu: '',
