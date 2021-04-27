@@ -328,6 +328,8 @@ export default {
                 console.log(error)
             })
 
+            this.$router.go(this.$router.currentRoute)
+
             // create history
               apiURL = 'http://api-vue.app.ruk-com.cloud/api-history/create';
               axios.post(apiURL, this.history).then(() => {
