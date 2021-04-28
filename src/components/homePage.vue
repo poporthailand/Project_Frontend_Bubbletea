@@ -7,7 +7,7 @@
       <div
         class="Body"
         style="
-          backgroundimage: url();
+          backgroundimage: url(https://1.bp.blogspot.com/-TBd-qil9b3U/YIiKQwttW6I/AAAAAAAAAA4/GPLWSC2ADZ86bXo5y1IFR3MiKEjd23G9wCLcBGAsYHQ/s1920/bgcenter.png);
         "
       >
         <div class="bodyleft">
