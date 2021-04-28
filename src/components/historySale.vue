@@ -54,7 +54,11 @@
             <td style="width: 250px">ราคา</td>
             <td style="width: 300px">วันที่</td>
             <td
-              style="width: 100px; border-top: 2px solid rgb(255, 255, 255);border-right: 2px solid rgb(255, 255, 255);"
+              style="
+                width: 100px;
+                border-top: 2px solid rgb(255, 255, 255);
+                border-right: 2px solid rgb(255, 255, 255);
+              "
             ></td>
           </tr>
 
@@ -72,7 +76,11 @@
             <td style="width: 300px">
               {{ history.date.slice(0, 10) }}
             </td>
-            <td style="width: 100px"><div class="delete" @click="handleDelete(history._id)" style="">Delete</div></td>
+            <td style="width: 100px">
+              <div class="delete" @click="handleDelete(history._id)" style="">
+                Delete
+              </div>
+            </td>
           </tr>
         </table>
       </div>
@@ -86,21 +94,23 @@ export default {
   data() {
     return {
       histories: [],
-      
     };
   },
   methods: {
     async handleDelete(id) {
       let apiURL = `http://api-vue.app.ruk-com.cloud/api-history/delete/${id}`;
-            let indexOfArrayItem = this.histories.findIndex(i => i._id === id);
-            if(window.confirm("Do you really want to delete?")){
-               await axios.delete(apiURL).then(() => {
-                    this.histories.splice(indexOfArrayItem, 1)
-                }).catch(error => {
-                    console.log(error)
-                })
-            }
-    }
+      let indexOfArrayItem = this.histories.findIndex((i) => i._id === id);
+      if (window.confirm("Do you really want to delete?")) {
+        await axios
+          .delete(apiURL)
+          .then(() => {
+            this.histories.splice(indexOfArrayItem, 1);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
   },
   async created() {
     let apiURL = "http://api-vue.app.ruk-com.cloud/api-history";
@@ -119,14 +129,14 @@ export default {
 
 <style scoped>
 .delete {
-  border-radius:10px;
-  padding:5px 10px;
-  color:white;
-  background:rgb(202, 61, 61);
-  cursor:pointer;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: white;
+  background: rgb(202, 61, 61);
+  cursor: pointer;
 }
-.delete:hover{
-  background:rgb(146, 44, 44);
+.delete:hover {
+  background: rgb(146, 44, 44);
 }
 table {
   border-spacing: 0;
